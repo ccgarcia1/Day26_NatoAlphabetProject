@@ -15,7 +15,14 @@ print(phonetic_alphabet_dic) # result must be {"A": "Alfa", "B": "Bravo"...}
 
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-user_input = input("Insira um nome: ").upper()
-result = [phonetic_alphabet_dic[letter] for letter in user_input]
+def generate_phonetic():
+    user_input = input("Insira um nome: ").upper()
+    try:
+        result = [phonetic_alphabet_dic[letter] for letter in user_input]
+    except KeyError:
+        print("Sorry only valid Alphabetic letters are allowed")
+        generate_phonetic()
+    else:
+        print(result)
 
-print(result)
+generate_phonetic()
